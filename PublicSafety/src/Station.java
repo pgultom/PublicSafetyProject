@@ -18,7 +18,7 @@ public class Station {
 	}
 	
 	public boolean hireDetective() {
-		return true;
+		return false;
 	}
 
 	public Station(String[] arrDetectives) {
