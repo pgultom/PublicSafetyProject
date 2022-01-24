@@ -1,16 +1,25 @@
- 
+import java.util.Scanner;
+
 public class Station {
 
-	public static final int TOTAL_DETECTIVES = 0;
-	public static int lastBadgeNumber;
-	public String [] arrDetectives;
+	public static final int TOTAL_DETECTIVES = 5;
+	public static int lastBadgeNumber = 1;
+	public Detective [] arrDetectives = new Detective[TOTAL_DETECTIVES];
+	public String stationName;
+	public static Scanner sc = new Scanner(System.in);
 	
-	public static int getLastBadgeNumber() {
-		return lastBadgeNumber;
+	public int detectiveCount = 0;
+	
+	public int getDetectiveCount() {
+		return detectiveCount;
 	}
-	
-	public static void setLastBadgeNumber(int lastBadgeNumber) {
-		Station.lastBadgeNumber = lastBadgeNumber;
+
+	public String getStationName() {
+		return stationName;
+	}
+
+	public void setStationName(String stationName) {
+		this.stationName = stationName;
 	}
 	
 	public static int getTotalDetectives() {
@@ -18,12 +27,38 @@ public class Station {
 	}
 	
 	public boolean hireDetective() {
+		System.out.print("New hire for " + this.stationName + "...Enter detective's name: ");
+		String name = sc.nextLine();
+		
+		for(int i = 0; i < arrDetectives.length; i++) {
+			
+			if(i == arrDetectives.length - 1 && arrDetectives[i].getBadgeNumber() != 0) {
+				return false;
+			}
+			else if(arrDetectives[i].getBadgeNumber() == 0 && arrDetectives[i].getDetectiveName() == "") {
+				arrDetectives[i].setDetectiveName(name);
+				arrDetectives[i].setBadgeNumber(lastBadgeNumber);
+				lastBadgeNumber++;
+				detectiveCount++;
+				break;
+			}
+		}
+		
 		return true;
 	}
 
-	public Station(String[] arrDetectives) {
-		super();
-		this.arrDetectives = arrDetectives;
+	public Detective[] getArrDetectives() {
+		return arrDetectives;
 	}
+
+	public Station(String stationName) {
+		super();
+		this.stationName = stationName;
+		for(int i = 0; i < this.arrDetectives.length; i++) {
+			this.arrDetectives[i] = new Detective();
+		}
+	}
+
+	
 
 }
