@@ -3,7 +3,15 @@ public class Detective {
 
 	private int badgeNumber;      // the badge number for a detective
 	private String detectiveName; // the name of a detective
-
+	
+	/*
+	 * Constructor for the Detective class that initializes the badge number and detective's name to unused values
+	 */
+	public Detective() {
+		this.badgeNumber = 0;
+		this.detectiveName = "";
+	}
+	
 	/*
 	 * Get the badge number for a detective
 	 * 
@@ -38,14 +46,6 @@ public class Detective {
 	 */
 	public void setDetectiveName(String detectiveName) {
 		this.detectiveName = detectiveName;
-	}
-
-	/*
-	 * Constructor for the Detective class that initializes the badge number and detective's name to unused values
-	 */
-	public Detective() {
-		this.badgeNumber = 0;
-		this.detectiveName = "";
 	}
 
 	@Override

@@ -10,6 +10,20 @@ public class Station {
 	public int detectiveCount = 0;                                       // counter for number of detectives assigned
 
 	/*
+	 * Constructor for the Station class. Initializes the array of detectives
+	 * using base Detective constructor
+	 * 
+	 * @param stationName the name of the station
+	 */
+	public Station(String stationName) {
+		super();
+		this.stationName = stationName;
+		for(int i = 0; i < this.arrDetectives.length; i++) {
+			this.arrDetectives[i] = new Detective();
+		}
+	}
+	
+	/*
 	 * Get the total number of detectives hired
 	 * 
 	 * @return the integer of detectives hired
@@ -72,21 +86,4 @@ public class Station {
 	public Detective[] getArrDetectives() {
 		return arrDetectives;
 	}
-
-	/*
-	 * Constructor for the Station class. Initializes the array of detectives
-	 * using base Detective constructor
-	 * 
-	 * @param stationName the name of the station
-	 */
-	public Station(String stationName) {
-		super();
-		this.stationName = stationName;
-		for(int i = 0; i < this.arrDetectives.length; i++) {
-			this.arrDetectives[i] = new Detective();
-		}
-	}
-
-
-
 }
